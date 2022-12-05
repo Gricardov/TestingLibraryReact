@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 
-function SummaryForm() {
+function SummaryForm({ setOrderPhase }) {
   const [accepts, setAccepts] = useState(false);
 
   const popover = (
@@ -12,7 +12,10 @@ function SummaryForm() {
     </Popover>
   );
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    accepts && setOrderPhase("complete");
+  };
 
   return (
     <>
